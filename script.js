@@ -248,4 +248,28 @@ const { deposits, withdrawals } = accounts
     },
     { deposits: 0, withdrawals: 0 }
   );
-  
+
+
+  const convertTitleCase = function (title) {
+    const capitzalize = str => str[0].toUpperCase() + str.slice(1);
+
+    const exceptions = [
+      'a',
+      'an',
+      'and',
+      'the',
+      'but',
+      'or',
+      'on',
+      'in',
+      'with',
+    ];
+
+    const titleCase = title
+      .toLowerCase()
+      .split(' ')
+      .map(word => (exceptions.includes(word) ? word : capitzalize(word)))
+      .join(' ');
+
+    return capitzalize(titleCase);
+  };
